@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login to Bank Management</title>
+</head>
+<body>
+<h1>Login page</h1>
+<form onsubmit ="return login();">
+
+<label for ="uname">Username</label><br>
+<input type ="text" id="uname" placeholder ="Enter Username" name= "uname" required><br>
+
+<label for="password">Password</label><br>
+<input type ="password" id="password" placeholder ="Enter Password" name ="password" required><br>
+
+<button type ="submit">Login</button>
+<button type ="button" onclick="window.open('signup.html', '_blank');">Sign up</button>
+</form>
+
+<script>
+	function login(){
+		const username = document.getElementById('uname').value;
+		const password = document.getElementById('password').value;
+		// Testing if login works
+		if (username === 'test' && password === 'test'){
+		console.log('Login successful')
+		window.location.href = 'dashboard.html';
+		} else {
+		alert('Wrong login or password, try again.');
+		}
+		return false;
+	}
+</script>
+</body>
+</html>
+

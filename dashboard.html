@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Transaction Page</title>
+</head>
+<body>
+<h1> Bank Account Dashboard</h1>
+<form id="dashboardForm">
+Balance: <span id="balance">$0.00</span>
+<input type ="number" id="amount" placeholder="$0.00">
+<button type = "button" onclick="deposit()">Deposit</button>
+<button type ="button" onclick="withdraw()">Withdraw</button>
+</form>
+
+<script>
+	let balance = 0;
+
+	function deposit() {
+		let amount = parseFloat(document.getElementById('amount').value);
+		if (amount > 0) {
+		balance += amount;
+		updateBalance();
+		}else{
+		alert("Invalid amount, please try again.");
+			}
+		}	
+	function withdraw() {
+		let amount = parseFloat(document.getElementById('amount').value);
+		if (amount > 0 && amount <= balance){
+		balance -= amount;
+		updateBalance();
+		} else {
+		alert("Invalid amount, please try again.");
+			}
+		}
+	function updateBalance(){
+		document.getElementById('balance').textContent =`${balance.toFixed(2)}`;
+		}
+</script>
+</body>
+</html>
