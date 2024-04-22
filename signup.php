@@ -36,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Bind parameters and execute the statement
     $stmt->bind_param("ssssss", $fname, $lname, $email, $pnumber, $username, $password);
     if ($stmt->execute()) {
-        echo "Thank you for creating an account with us.";
+        echo "Thank you for creating an account with us. ";
+        echo '<a href ="index.html">Back to login</a>';
     } else {
         echo "Error: " . $stmt->error;
     }
