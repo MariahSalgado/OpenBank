@@ -1,0 +1,84 @@
+/* Reset body margin and padding */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Center the form in the middle of the page */
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the header/banner */
+header {
+    background-color: #0073aa;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 24px;
+}
+
+/* Space out form elements */
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Style the submit and sign up buttons */
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+/* Specific styles for submit button */
+button[type="submit"] {
+    background-color: #0073aa;
+    color: white;
+}
+
+/* Specific styles for sign up button */
+button[type="button"] {
+    background-color: #ccc;
+    color: black;
+}
+
+/* Style labels for better readability */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+/* Center the content within the body, including the h1 title */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Additional styling for h1 to ensure it stands out and is centered */
+h1 {
+    text-align: center;
+    width: 100%;
+    color: #333;
+    margin-top: -100px; /* Adjust this value as needed to position your title */
+}
