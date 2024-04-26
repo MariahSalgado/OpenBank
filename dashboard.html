@@ -12,6 +12,11 @@ Balance: <span id="balance">$0.00</span>
 <button type = "button" onclick="deposit()">Deposit</button>
 <button type ="button" onclick="withdraw()">Withdraw</button>
 </form>
+<div id="transactions" style = "margin-top: 20px;">
+<h2>Transactions</h2>
+<ul id="logList" style ="list-style-type: none;">
+
+</ul>
 
 <script>
 	let balance = 0;
@@ -21,22 +26,38 @@ Balance: <span id="balance">$0.00</span>
 		if (amount > 0) {
 		balance += amount;
 		updateBalance();
+		transaction('Deposit', amount);
 		}else{
 		alert("Invalid amount, please try again.");
 			}
 		}	
+		
 	function withdraw() {
 		let amount = parseFloat(document.getElementById('amount').value);
 		if (amount > 0 && amount <= balance){
 		balance -= amount;
 		updateBalance();
+		transaction('Withdraw', amount);
 		} else {
 		alert("Invalid amount, please try again.");
 			}
 		}
+		
 	function updateBalance(){
 		document.getElementById('balance').textContent =`${balance.toFixed(2)}`;
 		}
+		
+	function transaction(type, amount){
+	const logList = document.getElementById('logList');
+	const entry = document.createElement('li');
+	entry.textContent = `${type}: $${amount.toFixed(2)}`;
+	
+	if (logList.children.length >=20){
+	logList.removeChild(logList.firstChild);
+	}
+	logList.appendChild(entry);
+	}
+	
 </script>
 </body>
 </html>
