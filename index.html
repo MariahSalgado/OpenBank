@@ -1,23 +1,24 @@
+<!-- HTML document for the login page for bank DBMS -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Login to Bank Management</title>
+<!-- Link to external CSS for styling -->
 <link rel="stylesheet" type="text/css" href="index_style.css">
 </head>
 <body>
 <h1>Login page</h1>
+  
+<!-- Form for user login; submits to login.php -->
 <form action="login.php" method="post">
-
-
 <label for ="uname">Username</label><br>
 <input type ="text" id="uname" placeholder ="Enter Username" name= "uname" required><br>
-
 <label for="password">Password</label><br>
 <input type ="password" id="password" placeholder ="Enter Password" name ="password" required><br>
-
 <button type ="submit">Login</button>
 <button type ="button" onclick="window.open('signup.html', '_blank');">Sign up</button>
+  
 </form>
 </body>
 </html>
