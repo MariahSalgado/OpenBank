@@ -1,0 +1,107 @@
+/* Title */
+.title {
+    font-size: 80px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #042c58;
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+    text-shadow: 2px 2px 4px rgba(248, 243, 243, 0.918); /* Text shadow */
+    transition: color 0.3s ease-in-out; /* color transition on hover */
+}
+/* Sub-title */
+.subtitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; 
+    text-align: center; 
+    margin-bottom: 20px;
+}
+/* Color transition on title hover */
+.title:hover {
+    color: #0073aa;
+}
+
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+/* Format for user info */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    background-color: #0073aa; /* Setting color to same blue as sign up button */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+/* Buttons format/style */
+.buttons {
+    text-align: center;
+}
+
+.buttons button {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #bfbfbf;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
