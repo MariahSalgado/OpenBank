@@ -1,10 +1,12 @@
+<!-- HTML Doc for sign-up page to register new users -->
 <!DOCTYPE html>
 <html>
 <head>
 <title>Sign up</title>
 </head>
-<h1>Sign up page</h1>
 <body>
+<h1>Sign up page</h1>
+<!-- Form for user registration; submits to signup.php -->
 <form action="signup.php" method="post">
 	<label for "fname">First Name:</label><br>
 	<input type="text" placeholder ="First Name" id="fname" name="fname" required><br>
@@ -18,9 +20,10 @@
 	<input type ="text" placeholder ="Username" id="username" name="username" required><br>
 	<label for "password">Password:</label><br>
 	<input type ="password" id="password" name ="password"required><br>
+<!-- Submit button and navigation back to login -->
 	<div class = "buttons">
 	<input type ="submit" value = "Sign up">
-	<button type="button" onclick= "window.location.href='index.html';">Back to Login</a>
+	<button type="button" onclick= "window.location.href='index.html';">Back to Login</button>
 	</div>
 </form>
 
