@@ -6,27 +6,33 @@
 </head>
 <body>
 <h1> Bank Account Dashboard</h1>
+<!-- Form for processing deposits and withdrawals -->
 <form id="dashboardForm">
+<!-- Display current balance -->	
 Balance: <span id="balance">$0.00</span>
+<!-- Amount input for transactions -->
 <input type ="number" id="amount" placeholder="$0.00">
+<!-- Buttons for deposit and withdrawal actions -->	
 <button type = "button" onclick="deposit()">Deposit</button>
 <button type ="button" onclick="withdraw()">Withdraw</button>
 </form>
+ <!-- Section to display transaction logs -->
 <div id="transactions" style = "margin-top: 20px;">
 <h2>Transactions</h2>
 <ul id="logList" style ="list-style-type: none;">
 
 </ul>
-
+</div>
+<!-- JavaScript for managing transactions -->
 <script>
 	let balance = 0;
 
 	function deposit() {
 		let amount = parseFloat(document.getElementById('amount').value);
 		if (amount > 0) {
-		balance += amount;
+		balance += amount; // Add amount to balance
 		updateBalance();
-		transaction('Deposit', amount);
+		transaction('Deposit', amount); // Logs deposit
 		}else{
 		alert("Invalid amount, please try again.");
 			}
@@ -35,9 +41,9 @@ Balance: <span id="balance">$0.00</span>
 	function withdraw() {
 		let amount = parseFloat(document.getElementById('amount').value);
 		if (amount > 0 && amount <= balance){
-		balance -= amount;
+		balance -= amount; // Subtracts amount from balance
 		updateBalance();
-		transaction('Withdraw', amount);
+		transaction('Withdraw', amount); // Logs withdrawal
 		} else {
 		alert("Invalid amount, please try again.");
 			}
@@ -53,9 +59,9 @@ Balance: <span id="balance">$0.00</span>
 	entry.textContent = `${type}: $${amount.toFixed(2)}`;
 	
 	if (logList.children.length >=20){
-	logList.removeChild(logList.firstChild);
+	logList.removeChild(logList.firstChild); // Removes the oldest transaction if list has 20 items
 	}
-	logList.appendChild(entry);
+	logList.appendChild(entry);  // Adds new transaction to the list
 	}
 	
 </script>
