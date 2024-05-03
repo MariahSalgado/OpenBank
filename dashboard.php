@@ -7,10 +7,12 @@ session_start();
 <head>
 <meta charset="UTF-8">
 <title>Transaction Page</title>
+<link rel ="stylesheet" href="dashboard.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-<h1> Bank Account Dashboard</h1>
+<a href="#" onclick="logout()" id="logout">Logout</a>
+<h1>OpenBank</h1>
 <form id="dashboardForm">
     Balance: <span id="balance">$0.00</span>
     <input type ="number" id="amount" placeholder="$0.00">
@@ -99,6 +101,22 @@ function transaction(type, amount) {
     }
     logList.appendChild(entry);
 }
+
+//Function to logout
+
+function logout(){
+    $.ajax({
+    url: 'logout.php', //URL to the logout.php
+    type: 'POST',
+    success: function(){
+    alert("You have been logged out.");
+    window.location.href = 'index.html'; // Takes user back to login page (index)
+    },
+    error: function(){
+    alert("Logout has failed, try again.");
+    }
+    });
+    }
 </script>
 
 </body>

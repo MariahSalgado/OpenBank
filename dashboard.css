@@ -1,3 +1,11 @@
+/* Putting logout link in the top right corner */
+#logout {
+	position: fixed;
+	right: 20px;
+	top: 20px;
+	font-size: 16px;
+	color: #000
+}
 /* Setting font, background, and text color for the body */
 body {
     font-family: Arial, sans-serif;
