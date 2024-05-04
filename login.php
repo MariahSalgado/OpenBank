@@ -38,8 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	        	echo "Wrong username or password";
 	    	}
 	} else {
-		echo "No such user exists ";
-		echo '<a href ="index.html">Back to login</a>';
+		echo "No such user exists";
 }
 
 	    $stmt->close();
