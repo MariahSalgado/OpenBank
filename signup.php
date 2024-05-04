@@ -37,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$stmt = $conn->prepare("INSERT INTO Accounts (CustomerID, AccountType, Balance) VALUES (?, 'Checking', 250.00)");
 	$stmt->bind_param("i", $customer_id);
 	if ($stmt->execute()) {
-		echo "Thank you for creating an account with us. $250 has been deposited into your account";
-		echo '<a href = "index.html"> Back to login,/a>';
+		echo "Thank you for creating an account with us. $250 has been deposited into your account ";
+		echo '<a href = "index.html">Back to login</a>';
 	} else {
 		echo "Error: account could not be created" . $stmt->error; }
    } else {
