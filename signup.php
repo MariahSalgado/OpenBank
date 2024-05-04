@@ -2,6 +2,7 @@
 // Enable error reporting for debugging (recommended to be turned off in production)
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+session_start();
 
 // Database credentials
 $host = 'localhost';
@@ -17,9 +18,8 @@ if ($conn->connect_error) {
     die('Connection failed: ' . $conn->connect_error);
 }
 
-// Check if the form data is posted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data and sanitize it
+    // Retrieve form data from the signup html file
     $fname = $conn->real_escape_string($_POST['fname'] ?? '');
     $lname = $conn->real_escape_string($_POST['lname'] ?? '');
     $email = $conn->real_escape_string($_POST['email'] ?? '');
@@ -27,20 +27,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $conn->real_escape_string($_POST['username'] ?? '');
     $password = $conn->real_escape_string($_POST['password'] ?? '');
 
-    // Prepare SQL statement to insert form data into the Customers table
+    // SQL statement to insert data into the Customers table
     $stmt = $conn->prepare("INSERT INTO Customers (FirstName, LastName, Email, PhoneNumber, Username, Password) VALUES (?, ?, ?, ?, ?, ?)");
-    if (!$stmt) {
-        die('MySQL prepare error: ' . $conn->error);
-    }
-
-    // Bind parameters and execute the statement
     $stmt->bind_param("ssssss", $fname, $lname, $email, $pnumber, $username, $password);
     if ($stmt->execute()) {
-        echo "Thank you for creating an account with us. ";
-        echo '<a href ="index.html">Back to login</a>';
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+        $customer_id = $stmt->insert_id;
+
+	// Creating a new account for the user
+	$stmt = $conn->prepare("INSERT INTO Accounts (CustomerID, AccountType, Balance) VALUES (?, 'Checking', 250.00)");
+	$stmt->bind_param("i", $customer_id);
+	if ($stmt->execute()) {
+		echo "Thank you for creating an account with us. $250 has been deposited into your account";
+		echo '<a href = "index.html"> Back to login,/a>';
+	} else {
+		echo "Error: account could not be created" . $stmt->error; }
+   } else {
+	echo "Error" . $stmt->error; }
+
 
     // Close statement and connection
     $stmt->close();
